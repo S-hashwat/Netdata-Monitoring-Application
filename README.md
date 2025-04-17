@@ -37,4 +37,20 @@ You’ll see a dashboard full of charts!
 
 You’ll get real-time data — try opening a few apps and observe how metrics change.
 
+5) Now you can create a Dummy App to Monitor
+ - Create package.json by writing the command "npm init -y" in git bash terminal
+ - Create server.js file and write :- 
+  // server.js
+  const http = require('http');
+  const server = http.createServer((req, res) => {
+  let sum = 0;
+  for (let i = 0; i < 1e7; i++) sum += i; // simulate CPU usage
+  res.end('Hello, World!');
+});
 
+ server.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+- Then write node server.js 
+
+Then Open http://localhost:3000 in your browser. Now go back to http://localhost:19999 and see the increase in CPU usage.
